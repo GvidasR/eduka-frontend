@@ -1,0 +1,38 @@
+<div class="container mt-5" *ngIf="task">
+  <div class="row">
+    <h2 class="col-12"> Klausimo {{task.id}} redagavimas</h2>
+    <h4 class="col-12 mt-3">Klausimas</h4>
+    <div class="form-group col-12">
+      <input type="text" class="form-control" id="klausimas" [(ngModel)]="task.question">
+    </div>
+    <h4 class="col-12 mt-3">Atsakymai</h4>
+    <div class="form-group col-12" *ngFor="let answer of task.answers">
+      <div class="row">
+        <div class="col-5">
+          <input [(ngModel)]="answer.answer" type="text" class="form-control">
+        </div>
+        <div class="form-check col-5">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="answer.correct" id="{{ answer.answer }}">
+          <label class="form-check-label" for="{{ answer.answer }}">
+            Teisingas atsakymas?
+          </label>
+        </div>
+        <div class="col-2">
+          <button
+            (click)="delete(answer)" class="btn btn-outline-danger float-right">Pašalinti
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-12">
+      <label>Naujas atsakymas</label>
+      <button class="btn btn-outline-primary float-right"
+              (click)="add()">Pridėti
+      </button>
+    </div>
+    <div class="col-12 my-5">
+      <button (click)="save()" class="btn btn-success float-right">Išsaugoti</button>
+      <button (click)="goBack()" class="btn btn-outline-danger float-right mr-3">Grįžti</button>
+    </div>
+  </div>
+</div>

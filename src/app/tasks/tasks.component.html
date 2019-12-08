@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="row">
+    <h2 class="col-12">Klausimai</h2>
+    <ul class="list-group col-12 mb-5">
+      <li class="list-group-item" *ngFor="let task of tasks">
+        <a routerLink="/detail/{{task.id}}">
+          <span class="badge badge-primary mr-3">{{task.id}}</span> {{task.question}}
+        </a>
+        <button type="button" class="btn btn-outline-danger float-right" (click)="delete(task)">Ištrinti</button>
+      </li>
+      <li class="list-group-item">
+        <div class="input-group">
+          <input type="text" class="form-control mr-3" placeholder="Naujas klausimas" #task/>
+          <button (click)="add(task.value); task.value=''" type="button" class="btn btn-outline-primary float-right">
+            Pridėti
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
