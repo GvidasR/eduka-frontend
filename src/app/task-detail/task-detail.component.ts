@@ -46,4 +46,12 @@ export class TaskDetailComponent implements OnInit {
   add(): void {
     this.task.answers.push({correct: false, answer: ''});
   }
+
+  fixSingleCorrect(correctAnswer): void {
+    this.task.answers.forEach((item) => {
+      if (item.answer !== correctAnswer) {
+        item.correct = false;
+      }
+    });
+  }
 }

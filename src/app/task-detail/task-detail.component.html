@@ -12,7 +12,7 @@
           <input [(ngModel)]="answer.answer" type="text" class="form-control">
         </div>
         <div class="form-check col-5">
-          <input class="form-check-input" type="checkbox" [(ngModel)]="answer.correct" id="{{ answer.answer }}">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="answer.correct" id="{{ answer.answer }}" (change)="fixSingleCorrect(answer.answer)">
           <label class="form-check-label" for="{{ answer.answer }}">
             Teisingas atsakymas?
           </label>
